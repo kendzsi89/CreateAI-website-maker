@@ -35,7 +35,7 @@ class CustomAgents:
     You have a knack for combining research with your own ideas to create smooth experiences.""",
     verbose=True,
     allow_delegation=False,
-    llm= ChatOpenAI(model_name="dall-e-3", temperature=0.8)
+    llm= ChatOpenAI(model_name="gpt-4-turbo", temperature=0.8)
 )
     def developer(self):
         return Agent(

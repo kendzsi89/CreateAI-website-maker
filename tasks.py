@@ -1,4 +1,7 @@
 from crewai import Task
+from openai import OpenAI
+
+
 
 # This is an example of how to define custom tasks.
 # You can define as many tasks as you want.
@@ -6,6 +9,7 @@ from crewai import Task
 class CustomTasks:
     def __tip_section(self):
         return "If you do your BEST WORK, I'll give you a $10,000 commission!"
+    
 
     def task1(self, agent):
         return Task(
@@ -16,13 +20,22 @@ class CustomTasks:
             agent=agent
         )
 
-    def task2(self, agent):
+    def task2(self, agent, imageGeneration):
         return Task(
-            description="""Using the insights provided, pick two or three design elements from them that you'll use to showcase in your designs. 
-            Then develop a set of 3 images that showcases your UX design, using prompts that work well with Dall-e 3.
+            description="""Using the insights provided, pick two or three design elements from them that you'll use to showcase in your website design. 
+            Then develop a set of 3 prompts for Dall-e to create your designs for the website.
             The images should include branding, identity and page layouts.""",
-        expected_output="3 website design images, 1 branding identity guideline",
-        agent=agent
+        expected_output="""an API call with 3 prompts for 3 website design images, 1 branding identity guideline.
+        
+        Example output:
+        [
+        "a beautiful landing page with an animated toroid in the background, with sans serif hero title, dark blue, silver, light mode",
+        "an interactive contact section with zooming hover effects, dark blue, silver, light mode",
+        "an animated game showcasing a leading developer portfolio, dark blue, silver, light mode",
+        ]
+        """,
+        agent=agent,
+        callback=imageGeneration
         )
     
     def task3(self, agent):
