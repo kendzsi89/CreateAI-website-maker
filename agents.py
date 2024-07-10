@@ -26,7 +26,6 @@ class CustomAgents:
     llm= ChatOpenAI(model_name="gpt-4-turbo", temperature=0.2)
 )
 
-
     def designer(self):
         return Agent(
             role = "Senior UX/UI designer",
@@ -35,7 +34,7 @@ class CustomAgents:
     Your expertise lies in designing beautiful user interfaces.
     You have a knack for combining research with your own ideas to create smooth experiences.""",
     verbose=True,
-    allow_delegation=True,
+    allow_delegation=False,
     llm= ChatOpenAI(model_name="dall-e-3", temperature=0.8)
 )
     def developer(self):
@@ -46,6 +45,6 @@ class CustomAgents:
     Your expertise lies in building precisely the designs given to you.
     You have a knack for writing simple but efficient code.""",
     verbose=True,
-    allow_delegation=True,
+    allow_delegation=False,
     llm= ChatOpenAI(model_name="gpt-4-turbo", temperature=0.3)
 )

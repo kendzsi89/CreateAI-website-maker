@@ -18,16 +18,17 @@ class CustomTasks:
 
     def task2(self, agent):
         return Task(
-            description="""Using the insights provided together with your own brilliant ideas, develop a set of 5 images that showcases your UX design.
-     Include branding, identity and page layouts on mobile and desktop.""",
-        expected_output="5 website design images, 1 branding identity guidelines",
+            description="""Using the insights provided, pick two or three design elements from them that you'll use to showcase in your designs. 
+            Then develop a set of 3 images that showcases your UX design, using prompts that work well with Dall-e 3.
+            The images should include branding, identity and page layouts.""",
+        expected_output="3 website design images, 1 branding identity guideline",
         agent=agent
         )
     
     def task3(self, agent):
         return Task(
-    description="""Using the design provided, build a functioning website using HTML, CSS and Javascript.
-     Add comments for clarity, and test the code for bugs. Take care about responsiveness over mobile and desktop.""",
+    description="""Using the design images provided, build a functioning website using HTML, CSS and Javascript that is precisely like the images.
+     Add comments in your code for clarity. Take care about responsiveness over mobile and desktop.""",
     expected_output="three files: index.html, styles.css, script.js",
     agent=agent
 )
