@@ -3,7 +3,7 @@ load_dotenv()
 from crewai import Agent, Task, Crew, Process
 from langchain_openai import ChatOpenAI
 
-from dall_e import imageGeneration
+from dall_e import imageGeneration, image_links
 from textwrap import dedent
 from agents import CustomAgents
 from tasks import CustomTasks
@@ -36,16 +36,17 @@ class CustomCrew:
             imageGeneration
         )
 
-       # custom_task_3 = tasks.task3(
-            #custom_agent_3,
-       # )
+        custom_task_3 = tasks.task3(
+            custom_agent_3,
+            image_links
+        )
 
         # Define your custom crew here
         crew = Crew(
             agents=[custom_agent_1, custom_agent_2, custom_agent_3],
             tasks=[custom_task_1, 
                    custom_task_2, 
-                   #custom_task_3
+                   custom_task_3
                    ],
             verbose=True,
         )

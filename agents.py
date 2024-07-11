@@ -20,7 +20,7 @@ class CustomAgents:
     backstory = """You work at a leading tech company.
     Your expertise lies in searcing Google for web design concepts.
     You have a knack for dissecting complex data and presenting actionable insights.""",
-    verbose=True,
+    verbose=False,
     allow_delegation=False,
     tool=[search_tool],
     llm= ChatOpenAI(model_name="gpt-4-turbo", temperature=0.2)
@@ -33,18 +33,18 @@ class CustomAgents:
     backstory = """You work at a leading tech company.
     Your expertise lies in designing beautiful user interfaces.
     You have a knack for combining research with your own ideas to create smooth experiences.""",
-    verbose=True,
+    verbose=False,
     allow_delegation=False,
     llm= ChatOpenAI(model_name="gpt-4-turbo", temperature=0.8)
 )
     def developer(self):
         return Agent(
             role = "Senior Web Developer",
-    goal = "Build the website with efficient and understandable code using HTML, CSS and Javascript",
+    goal = "Build the website from images with react",
     backstory = """You work at a leading tech company.
     Your expertise lies in building precisely the designs given to you.
     You have a knack for writing simple but efficient code.""",
-    verbose=True,
+    verbose=False,
     allow_delegation=False,
     llm= ChatOpenAI(model_name="gpt-4-turbo", temperature=0.3)
 )

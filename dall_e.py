@@ -1,9 +1,10 @@
 from openai import OpenAI
 client = OpenAI()
-
+image_links=[]
 
 
 def imageGeneration(task_output):
+    global image_links
     prompt_results = task_output.result()
     print("## Here is your raw output string")
     print("########################\n")
@@ -33,8 +34,9 @@ def imageGeneration(task_output):
     quality="standard",
     n=1,
     )
-    images = [response1.data[0].url, response2.data[0].url, response3.data[0].url]
+    image_links = [response1.data[0].url, response2.data[0].url, response3.data[0].url]
     print("########################\n")
     print("## Three links with Dall-e generated images:")
-    print(images)
-    return images
+    print(image_links)
+
+    return image_links
